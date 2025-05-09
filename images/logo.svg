@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120">
+  <!-- 十字架部分 -->
+  <path d="M40,20 C35,20 30,25 30,30 L30,45 L15,45 C10,45 5,50 5,55 C5,60 10,65 15,65 L30,65 L30,100 C30,105 35,110 40,110 C45,110 50,105 50,55 L50,65 L85,65 C90,65 95,60 95,55 C95,50 90,45 85,45 L50,45 L50,30 C50,25 45,20 40,20 Z" fill="#FFB02E" stroke="#0046AA" stroke-width="3"/>
+
+  <!-- "加倍愛" 文字 -->
+  <text x="110" y="45" font-family="Microsoft JhengHei, sans-serif" font-size="32" font-weight="bold" fill="#0046AA">加倍愛</text>
+  
+  <!-- "Double Mile" 文字 -->
+  <text x="110" y="75" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0077CC">Double Mile</text>
+  
+  <!-- 腳印 -->
+  <g transform="translate(180, 85) scale(0.4)">
+    <path d="M10,0 C15,5 25,5 30,0 C35,-5 35,-15 30,-20 C25,-25 15,-25 10,-20 C5,-15 5,-5 10,0 Z" fill="#FFB02E" />
+    <path d="M-5,-5 C0,0 10,0 15,-5 C20,-10 20,-20 15,-25 C10,-30 0,-30 -5,-25 C-10,-20 -10,-10 -5,-5 Z" fill="#FFB02E" />
+    <path d="M-15,-15 C-10,-10 0,-10 5,-15 C10,-20 10,-30 5,-35 C0,-40 -10,-40 -15,-35 C-20,-30 -20,-20 -15,-15 Z" fill="#0046AA" />
+    <path d="M-25,-30 C-20,-25 -10,-25 -5,-30 C0,-35 0,-45 -5,-50 C-10,-55 -20,-55 -25,-50 C-30,-45 -30,-35 -25,-30 Z" fill="#0046AA" />
+  </g>
+</svg> 

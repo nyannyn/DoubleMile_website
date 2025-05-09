@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加倍愛 - 用愛溫暖社會每個角落</title>
+    <meta name="description" content="加倍愛致力於透過公益服務，關懷弱勢，讓愛的力量加倍傳遞">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 載入Font Awesome圖標庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- favicon設置 -->
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* 機構簡介區塊樣式 */
+        .organization-intro {
+            padding: 60px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .intro-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .intro-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .intro-icon {
+            font-size: 2.5rem;
+            color: #FFB02E;
+            margin-bottom: 20px;
+        }
+        
+        .intro-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .info-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .info-icon {
+            color: #FFB02E;
+            margin-right: 15px;
+            min-width: 20px;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .volunteer-section {
+            background-color: #f5f5f5;
+            padding: 80px 0;
+        }
+        
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .volunteer-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .volunteer-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .volunteer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .volunteer-details {
+            margin-bottom: 20px;
+            color: #555555;
+        }
+        
+        .volunteer-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888888;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁首區域 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo-icon.svg" alt="加倍愛Logo" class="logo-img">
+                    <h1>加倍愛</h1>
+                </a>
+            </div>
+            <nav>
+                <button class="menu-toggle" aria-label="選單">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="about/index.html">關於我們</a></li>
+                    <li><a href="services/index.html">服務項目</a></li>
+                    <li><a href="contact/index.html">聯絡我們</a></li>
+                    <li><a href="contact/volunteer.html">志工招募</a></li>
+                    <li class="donate-button"><a href="contact/donate.html">立即捐款</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主視覺區域 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>用愛溫暖社會每個角落</h2>
+                <p>加倍愛致力於提供弱勢族群關懷與支持，讓每個人都能感受到社會的溫暖</p>
+                <div class="hero-buttons">
+                    <a href="about/index.html" class="btn primary">了解更多</a>
+                    <a href="contact/volunteer.html" class="btn secondary">成為志工</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 機構簡介 -->
+    <section class="organization-intro">
+        <div class="container">
+            <div class="section-header">
+                <h2>機構簡介</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">社團法人中華基督教加倍愛全人關懷協會成立於2022年，致力於透過愛與關懷服務社會弱勢，傳遞基督的大愛精神。</p>
+            
+            <div class="intro-grid">
+                <div class="intro-item">
+                    <div class="intro-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>基本資訊</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-certificate"></i></div>
+                            <div>內政部立案：103年09月01日<br>台內團字第1030212226號</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-tag"></i></div>
+                            <div>類別：社會服務</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>地區：臺北市</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-item">
+                    <div class="intro-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>聯絡方式</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-phone"></i></div>
+                            <div>電話：02-26538820</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-user"></i></div>
+                            <div>聯絡人：張其東</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>地址：臺北市南港區忠孝東路七段625巷16號</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                            <div>E-mail：doublemile8820@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-item">
+                    <div class="intro-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>捐款方式</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-money-check"></i></div>
+                            <div>郵政劃撥：50310125</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-landmark"></i></div>
+                            <div>南港富康郵局 (代號 700)<br>
+                            帳號：0002657-0738203</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-credit-card"></i></div>
+                            <div>信用卡捐款</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <div><a href="contact/donate.html" class="service-link">立即捐款</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 機構介紹影片 -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>認識加倍愛</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">透過以下影片，了解我們的故事、使命與服務，看見愛如何在社區中傳遞。</p>
+            <div class="video-container">
+                <iframe width="100%" height="500" src="https://www.youtube.com/embed/hcnN7bxMO28?si=Xf81MZqsdyzaXTeu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 志工招募 -->
+    <section class="volunteer-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>志工招募</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">我們需要您的參與！加入志工團隊，一起為社會帶來正面的改變。</p>
+            
+            <div class="volunteer-grid">
+                <div class="volunteer-card">
+                    <h3 class="volunteer-title">長者陪伴志工招募</h3>
+                    <div class="volunteer-details">
+                        <p>長者陪伴志工每周二、四、五早上9：00-12：00陪伴長者運動與遊戲安全...</p>
+                    </div>
+                    <div class="volunteer-meta">
+                        <span>發表：2024-12-19</span>
+                        <span>地點：台北市南港</span>
+                    </div>
+                    <p>人數需求：2-3</p>
+                    <a href="contact/volunteer.html" class="btn secondary">我要加入</a>
+                </div>
+                
+                <div class="volunteer-card">
+                    <h3 class="volunteer-title">特殊兒陪伴志工</h3>
+                    <div class="volunteer-details">
+                        <p>每周六下午2：00-5：00陪伴特殊兒活動與注意安全...</p>
+                    </div>
+                    <div class="volunteer-meta">
+                        <span>發表：2024-12-19</span>
+                        <span>地點：台北市忠孝</span>
+                    </div>
+                    <p>人數需求：3-5</p>
+                    <a href="contact/volunteer.html" class="btn secondary">我要加入</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我們的使命 -->
+    <section class="mission">
+        <div class="container">
+            <div class="section-header">
+                <h2>我們的使命</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="mission-content">
+                <p>加倍愛成立的使命是透過集結社會各界的力量，關懷弱勢族群，提供必要的資源與支持，讓愛的力量加倍傳遞。我們相信，每一個小小的付出，都能為需要幫助的人帶來巨大的改變。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服務項目 -->
+    <section class="services-highlight">
+        <div class="container">
+            <div class="section-header">
+                <h2>我們的服務項目</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-holding-child"></i>
+                    </div>
+                    <h3>兒童關懷</h3>
+                    <p>為弱勢家庭兒童提供課後輔導、心理輔導與才藝培養，協助他們健康成長。</p>
+                    <a href="services/children.html" class="service-link">了解更多</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-person-cane"></i>
+                    </div>
+                    <h3>長者照顧</h3>
+                    <p>關懷獨居長者，提供日常生活協助、健康關懷和心靈陪伴服務。</p>
+                    <a href="services/elderly.html" class="service-link">了解更多</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>社區服務</h3>
+                    <p>舉辦社區活動，建立互助網絡，促進社區凝聚力與和諧關係。</p>
+                    <a href="services/community.html" class="service-link">了解更多</a>
+                </div>
+            </div>
+            <div class="services-more">
+                <a href="services/index.html" class="btn primary">查看所有服務</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新活動 -->
+    <section class="latest-events">
+        <div class="container">
+            <div class="section-header">
+                <h2>最新活動</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="images/event1.jpg" alt="冬季送暖活動">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">2025年12月25日</div>
+                        <h3>冬季送暖活動</h3>
+                        <p>為弱勢家庭送上冬季物資與禦寒衣物，一起度過溫暖冬季。</p>
+                        <a href="#" class="event-link">活動詳情</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-image">
+                        <img src="images/event2.jpg" alt="兒童夏令營">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">2025年7月15日</div>
+                        <h3>兒童夏令營</h3>
+                        <p>為弱勢家庭兒童舉辦免費夏令營，提供豐富的學習與娛樂活動。</p>
+                        <a href="#" class="event-link">活動詳情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 影響力數據 -->
+    <section class="impact">
+        <div class="container">
+            <div class="section-header">
+                <h2>我們的影響力</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">受益家庭</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">志工夥伴</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="20">0</div>
+                    <div class="stat-label">完成專案</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="3">0</div>
+                    <div class="stat-label">服務年資</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入我們 -->
+    <section class="join-us">
+        <div class="container">
+            <div class="join-content">
+                <h2>與我們一起分享愛與關懷</h2>
+                <p>無論是透過捐款、志工服務或是分享訊息，您都能成為改變的力量。</p>
+                <div class="join-buttons">
+                    <a href="contact/donate.html" class="btn primary">立即捐款</a>
+                    <a href="contact/volunteer.html" class="btn secondary">成為志工</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾區域 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo-icon.svg" alt="加倍愛Logo">
+                        <h3>加倍愛</h3>
+                    </div>
+                    <p>加倍愛是致力於關懷弱勢、提供社會服務的非營利組織，我們相信透過每個人的一點點付出，能為社會帶來巨大的改變。</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>聯絡資訊</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 臺北市南港區忠孝東路七段625巷16號</li>
+                        <li><i class="fas fa-phone"></i> 02-26538820</li>
+                        <li><i class="fas fa-envelope"></i> doublemile8820@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="about/index.html">關於我們</a></li>
+                        <li><a href="services/index.html">服務項目</a></li>
+                        <li><a href="contact/index.html">聯絡我們</a></li>
+                        <li><a href="privacy.html">隱私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>社群媒體</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/doublemile8820/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Line"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 加倍愛 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html> 

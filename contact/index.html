@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 - 加倍愛</title>
+    <meta name="description" content="聯絡加倍愛，了解更多關於我們的服務，或提供您的意見回饋">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 載入Font Awesome圖標庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- favicon設置 -->
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <style>
+        /* 聯絡我們頁面特定樣式 */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-section:nth-child(even) {
+            background-color: #F5F5F5;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            padding-right: 30px;
+        }
+        
+        .info-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .info-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFB02E;
+        }
+        
+        .info-list {
+            margin-bottom: 40px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .info-icon {
+            font-size: 1.2rem;
+            color: #FFB02E;
+            margin-right: 15px;
+            min-width: 20px;
+            text-align: center;
+        }
+        
+        .info-content {
+            line-height: 1.6;
+        }
+        
+        .office-hours {
+            margin-bottom: 40px;
+        }
+        
+        .hour-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .day {
+            font-weight: 500;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 15px;
+            margin-bottom: 15px;
+            color: #555555;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #FFB02E;
+        }
+        
+        .social-links i {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        
+        /* 表單樣式 */
+        .contact-form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFB02E;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #FFB02E;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 176, 46, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            background-color: #FFB02E;
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .form-submit:hover {
+            background-color: #E09417;
+        }
+        
+        /* 地圖樣式 */
+        .map-section {
+            padding: 0;
+        }
+        
+        .map-container {
+            height: 450px;
+            width: 100%;
+        }
+        
+        /* 響應式調整 */
+        @media screen and (max-width: 768px) {
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁首區域 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo-icon.svg" alt="加倍愛Logo" class="logo-img">
+                    <h1>加倍愛</h1>
+                </a>
+            </div>
+            <nav>
+                <button class="menu-toggle" aria-label="選單">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">首頁</a></li>
+                    <li><a href="../about/index.html">關於我們</a></li>
+                    <li><a href="../services/index.html">服務項目</a></li>
+                    <li><a href="index.html">聯絡我們</a></li>
+                    <li><a href="volunteer.html">志工招募</a></li>
+                    <li class="donate-button"><a href="donate.html">立即捐款</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 聯絡我們主視覺 -->
+    <section class="contact-hero">
+        <div class="container">
+            <h2>聯絡我們</h2>
+            <p>無論是捐款、志工服務，或是任何問題，都歡迎與我們聯繫</p>
+        </div>
+    </section>
+
+    <!-- 聯絡資訊與表單 -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>與我們聯繫</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">無論您有任何關於加倍愛的問題，或是想要了解如何參與我們的服務，都歡迎隨時與我們聯繫。</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="info-title">聯絡資訊</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>地址</strong><br>
+                                臺北市南港區忠孝東路七段625巷16號
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>電話</strong><br>
+                                02-26538820
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <strong>電子郵件</strong><br>
+                                doublemile8820@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="office-hours">
+                        <h3 class="hour-title">服務時間</h3>
+                        <div class="hour-item">
+                            <div class="day">週一至週五</div>
+                            <div class="time">09:00 - 18:00</div>
+                        </div>
+                        <div class="hour-item">
+                            <div class="day">週六</div>
+                            <div class="time">10:00 - 15:00</div>
+                        </div>
+                        <div class="hour-item">
+                            <div class="day">週日及國定假日</div>
+                            <div class="time">休息</div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3 class="hour-title">社群媒體</h3>
+                        <a href="https://www.facebook.com/doublemile8820/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
+                        <a href="#"><i class="fab fa-line"></i> Line</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="form-title">留言表單</h3>
+                    <form id="contactForm" action="#" method="post">
+                        <div class="form-group">
+                            <label for="name" class="form-label">姓名 *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">電子郵件 *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">電話</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">主旨 *</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">訊息內容 *</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">送出訊息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地圖 -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.6553621551857!2d121.57973377607394!3d25.04166067783004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab81ebefe723%3A0xce058a9839c7eb2a!2zMTE15Y-w5YyX5biC5Y2X5riv5Y2A5b-g5a2d5p2x6Lev5LiD5q61NjI16YeL!5e0!3m2!1szh-TW!2stw!4v1715258195962!5m2!1szh-TW!2stw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- 頁尾區域 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="加倍愛Logo">
+                        <h3>加倍愛</h3>
+                    </div>
+                    <p>加倍愛是致力於關懷弱勢、提供社會服務的非營利組織，我們相信透過每個人的一點點付出，能為社會帶來巨大的改變。</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>聯絡資訊</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 臺北市南港區忠孝東路七段625巷16號</li>
+                        <li><i class="fas fa-phone"></i> 02-26538820</li>
+                        <li><i class="fas fa-envelope"></i> doublemile8820@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="../about/index.html">關於我們</a></li>
+                        <li><a href="../services/index.html">服務項目</a></li>
+                        <li><a href="index.html">聯絡我們</a></li>
+                        <li><a href="../privacy.html">隱私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>社群媒體</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/doublemile8820/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Line"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 加倍愛 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script>
+        // 表單提交處理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // 這裡可以加入表單驗證和提交邏輯
+            alert('謝謝您的訊息！我們將盡快回覆您。');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 

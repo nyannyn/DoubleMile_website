@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>捐款支持 - 加倍愛</title>
+    <meta name="description" content="透過捐款支持加倍愛，幫助弱勢族群，讓愛的力量加倍傳遞">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 載入Font Awesome圖標庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- favicon設置 -->
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <style>
+        /* 捐款頁面特定樣式 */
+        .donate-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/donate-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .donate-section {
+            padding: 80px 0;
+        }
+        
+        .donate-section:nth-child(even) {
+            background-color: #F5F5F5;
+        }
+        
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* 捐款方式卡片 */
+        .donation-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .method-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .method-icon {
+            font-size: 2.5rem;
+            color: #FFB02E;
+            margin-bottom: 20px;
+        }
+        
+        .method-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        .method-details {
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .detail-item {
+            margin-bottom: 10px;
+            color: #555555;
+        }
+        
+        .detail-item strong {
+            color: #333333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        /* 捐款表單 */
+        .donation-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .donation-info {
+            padding-right: 30px;
+        }
+        
+        .info-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .info-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFB02E;
+        }
+        
+        .donation-form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFB02E;
+        }
+        
+        .amount-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .amount-option {
+            display: none;
+        }
+        
+        .amount-label {
+            display: block;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .amount-option:checked + .amount-label {
+            background-color: #FFB02E;
+            border-color: #FFB02E;
+            color: #ffffff;
+        }
+        
+        .custom-amount {
+            position: relative;
+        }
+        
+        .currency-symbol {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #555555;
+        }
+        
+        .custom-amount .form-control {
+            padding-left: 30px;
+        }
+        
+        /* 平台按鈕 */
+        .payment-platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .platform-option {
+            display: none;
+        }
+        
+        .platform-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .platform-option:checked + .platform-label {
+            background-color: #f8f8f8;
+            border-color: #FFB02E;
+            color: #333333;
+        }
+        
+        /* 響應式調整 */
+        @media screen and (max-width: 768px) {
+            .donation-info {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁首區域 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo-icon.svg" alt="加倍愛Logo" class="logo-img">
+                    <h1>加倍愛</h1>
+                </a>
+            </div>
+            <nav>
+                <button class="menu-toggle" aria-label="選單">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">首頁</a></li>
+                    <li><a href="../about/index.html">關於我們</a></li>
+                    <li><a href="../services/index.html">服務項目</a></li>
+                    <li><a href="index.html">聯絡我們</a></li>
+                    <li><a href="volunteer.html">志工招募</a></li>
+                    <li class="donate-button"><a href="donate.html" class="active">立即捐款</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 捐款主視覺 -->
+    <section class="donate-hero">
+        <div class="container">
+            <h2>支持加倍愛</h2>
+            <p>您的每一分捐款，都能為需要幫助的人帶來希望與溫暖</p>
+        </div>
+    </section>
+
+    <!-- 捐款說明 -->
+    <section class="donate-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>為什麼需要您的支持</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">加倍愛致力於為弱勢族群提供關懷與支持，您的捐款將用於兒童關懷、長者照顧和社區服務等項目，幫助更多需要幫助的人。</p>
+            
+            <div class="donation-methods">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>信用卡捐款</h3>
+                    <p>便捷安全的捐款方式，可選擇單次或定期定額捐款。</p>
+                    <div class="method-details">
+                        <div class="detail-item">
+                            <strong>接受卡別</strong>
+                            VISA、MasterCard、JCB
+                        </div>
+                        <div class="detail-item">
+                            <strong>處理平台</strong>
+                            綠界科技支付平台 (ECPay)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>銀行轉帳</h3>
+                    <p>可透過ATM轉帳或臨櫃匯款方式捐款。</p>
+                    <div class="method-details">
+                        <div class="detail-item">
+                            <strong>銀行名稱</strong>
+                            南港富康郵局 (代號 700)
+                        </div>
+                        <div class="detail-item">
+                            <strong>戶名</strong>
+                            社團法人中華基督教加倍愛全人關懷協會
+                        </div>
+                        <div class="detail-item">
+                            <strong>帳號</strong>
+                            0002657-0738203
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-money-check"></i>
+                    </div>
+                    <h3>郵政劃撥</h3>
+                    <p>可使用郵政劃撥單進行捐款。</p>
+                    <div class="method-details">
+                        <div class="detail-item">
+                            <strong>劃撥帳號</strong>
+                            50310125
+                        </div>
+                        <div class="detail-item">
+                            <strong>戶名</strong>
+                            社團法人中華基督教加倍愛全人關懷協會
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>行動支付</h3>
+                    <p>使用行動支付平台快速捐款。</p>
+                    <div class="method-details">
+                        <div class="detail-item">
+                            <strong>支援平台</strong>
+                            LINE Pay、街口支付、台灣Pay
+                        </div>
+                        <div class="detail-item">
+                            <strong>掃描方式</strong>
+                            請掃描下方QR Code或點選對應平台按鈕
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 線上捐款表單 -->
+    <section class="donate-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>線上捐款</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">您可以立即透過線上表單進行捐款，過程安全且便捷。</p>
+            
+            <div class="donation-container">
+                <div class="donation-info">
+                    <h3 class="info-title">您的捐款將用於</h3>
+                    <ul>
+                        <li>兒童課後輔導與才藝培養</li>
+                        <li>獨居長者生活協助與健康關懷</li>
+                        <li>特殊兒童照顧服務</li>
+                        <li>社區服務活動與教育推廣</li>
+                        <li>急難救助與物資援助</li>
+                        <li>志工培訓與管理</li>
+                    </ul>
+                    <p style="margin-top: 30px;">我們承諾，每一筆捐款都將被妥善運用，定期公開財務報表與服務成果，讓您了解您的愛心如何幫助他人。</p>
+                    <p style="margin-top: 20px;">如有任何疑問，歡迎聯絡我們：</p>
+                    <p><i class="fas fa-phone"></i> 02-26538820</p>
+                    <p><i class="fas fa-envelope"></i> doublemile8820@gmail.com</p>
+                </div>
+                
+                <div class="donation-form">
+                    <h3 class="form-title">捐款表單</h3>
+                    <form id="donationForm" action="#" method="post">
+                        <div class="form-group">
+                            <label class="form-label">捐款金額</label>
+                            <div class="amount-options">
+                                <input type="radio" name="amount" id="amount500" value="500" class="amount-option">
+                                <label for="amount500" class="amount-label">NT$500</label>
+                                
+                                <input type="radio" name="amount" id="amount1000" value="1000" class="amount-option" checked>
+                                <label for="amount1000" class="amount-label">NT$1,000</label>
+                                
+                                <input type="radio" name="amount" id="amount3000" value="3000" class="amount-option">
+                                <label for="amount3000" class="amount-label">NT$3,000</label>
+                            </div>
+                            <div class="form-group custom-amount">
+                                <span class="currency-symbol">NT$</span>
+                                <input type="number" id="customAmount" name="customAmount" class="form-control" placeholder="自訂金額">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">捐款方式</label>
+                            <div class="payment-platforms">
+                                <input type="radio" name="platform" id="creditCard" value="creditCard" class="platform-option" checked>
+                                <label for="creditCard" class="platform-label">
+                                    <span class="platform-icon"><i class="fas fa-credit-card"></i></span>
+                                    <span>信用卡</span>
+                                </label>
+                                
+                                <input type="radio" name="platform" id="linePay" value="linePay" class="platform-option">
+                                <label for="linePay" class="platform-label">
+                                    <span class="platform-icon"><i class="fab fa-line"></i></span>
+                                    <span>LINE Pay</span>
+                                </label>
+                                
+                                <input type="radio" name="platform" id="jkoPay" value="jkoPay" class="platform-option">
+                                <label for="jkoPay" class="platform-label">
+                                    <span class="platform-icon"><i class="fas fa-qrcode"></i></span>
+                                    <span>街口支付</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name" class="form-label">姓名 *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">電子郵件 *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">電話 *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address" class="form-label">地址 (收據寄送用)</label>
+                            <input type="text" id="address" name="address" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" id="receipt" name="receipt" checked>
+                            <label for="receipt">需要捐款收據</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="checkbox" id="agreement" name="agreement" required>
+                            <label for="agreement">我已閱讀並同意<a href="../privacy.html">隱私政策</a>，以及捐款資訊的處理方式</label>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">確認捐款</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 捐款FAQ -->
+    <section class="donate-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>常見問題</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>捐款可以開立收據嗎？</h3>
+                    <p>是的，我們會依據您填寫的資料開立捐款收據，並於捐款後次月寄出。收據可作為報稅列舉扣除使用。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>我可以選擇定期定額捐款嗎？</h3>
+                    <p>可以，在線上捐款表單中選擇信用卡付款方式時，您可以勾選「定期定額捐款」選項，並選擇捐款週期。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>捐款後如何查詢捐款紀錄？</h3>
+                    <p>您可以來電或來信查詢您的捐款紀錄，我們將協助您確認捐款狀況。</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>如何取消定期定額捐款？</h3>
+                    <p>您可以隨時來電或來信告知我們，我們將協助您取消定期定額捐款設定。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾區域 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="加倍愛Logo">
+                        <h3>加倍愛</h3>
+                    </div>
+                    <p>加倍愛是致力於關懷弱勢、提供社會服務的非營利組織，我們相信透過每個人的一點點付出，能為社會帶來巨大的改變。</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>聯絡資訊</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 臺北市南港區忠孝東路七段625巷16號</li>
+                        <li><i class="fas fa-phone"></i> 02-26538820</li>
+                        <li><i class="fas fa-envelope"></i> doublemile8820@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="../about/index.html">關於我們</a></li>
+                        <li><a href="../services/index.html">服務項目</a></li>
+                        <li><a href="index.html">聯絡我們</a></li>
+                        <li><a href="../privacy.html">隱私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>社群媒體</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/doublemile8820/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Line"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 加倍愛 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script>
+        // 表單提交處理
+        document.getElementById('donationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // 這裡可以加入表單驗證和提交邏輯
+            alert('感謝您的愛心捐款！我們將進行後續處理。');
+            this.reset();
+        });
+        
+        // 自訂金額處理
+        document.getElementById('customAmount').addEventListener('focus', function() {
+            // 取消選取的固定金額
+            const amountOptions = document.querySelectorAll('input[name="amount"]');
+            amountOptions.forEach(option => {
+                option.checked = false;
+            });
+        });
+        
+        // 選擇固定金額時清空自訂金額
+        const amountOptions = document.querySelectorAll('input[name="amount"]');
+        amountOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('customAmount').value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

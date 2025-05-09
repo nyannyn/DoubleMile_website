@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務項目 - 加倍愛</title>
+    <meta name="description" content="加倍愛提供的服務項目，包括兒童關懷、長者照顧、社區服務等多元公益活動">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 載入Font Awesome圖標庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- favicon設置 -->
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <style>
+        /* 服務項目頁面特定樣式 */
+        .services-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/services-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .service-section {
+            padding: 80px 0;
+        }
+        
+        .service-section:nth-child(even) {
+            background-color: #F5F5F5;
+        }
+        
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .service-container {
+            margin-top: 50px;
+        }
+        
+        .service-item {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 70px;
+            align-items: center;
+        }
+        
+        .service-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .service-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .service-item:nth-child(odd) .service-content {
+            padding-left: 50px;
+        }
+        
+        .service-item:nth-child(even) .service-content {
+            padding-right: 50px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333333;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-content h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFB02E;
+        }
+        
+        .service-item:nth-child(even) .service-content h3::after {
+            left: auto;
+            right: 0;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555555;
+        }
+        
+        .service-features {
+            margin-top: 20px;
+        }
+        
+        .feature-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            color: #FFB02E;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .service-cta {
+            margin-top: 30px;
+        }
+        
+        /* 參與方式 */
+        .participate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .participate-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .participate-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .participate-icon {
+            font-size: 2.5rem;
+            color: #FFB02E;
+            margin-bottom: 20px;
+        }
+        
+        .participate-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333333;
+        }
+        
+        @media screen and (max-width: 992px) {
+            .service-item, 
+            .service-item:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .service-content,
+            .service-item:nth-child(odd) .service-content,
+            .service-item:nth-child(even) .service-content {
+                padding: 30px 0;
+            }
+            
+            .service-item:nth-child(even) .service-content h3::after {
+                left: 0;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁首區域 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../images/logo-icon.svg" alt="加倍愛Logo" class="logo-img">
+                    <h1>加倍愛</h1>
+                </a>
+            </div>
+            <nav>
+                <button class="menu-toggle" aria-label="選單">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html">首頁</a></li>
+                    <li><a href="../about/index.html">關於我們</a></li>
+                    <li><a href="index.html">服務項目</a></li>
+                    <li><a href="../contact/index.html">聯絡我們</a></li>
+                    <li><a href="../contact/volunteer.html">志工招募</a></li>
+                    <li class="donate-button"><a href="../contact/donate.html">立即捐款</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 服務項目主視覺 -->
+    <section class="services-hero">
+        <div class="container">
+            <h2>服務項目</h2>
+            <p>我們提供多元化的服務，為不同需求的弱勢族群帶來關懷與支持</p>
+        </div>
+    </section>
+
+    <!-- 服務項目介紹 -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>我們的服務</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">加倍愛以「加倍的愛、加倍的關懷」為核心理念，提供多元化的服務，希望能為不同需求的弱勢族群帶來實質的幫助與心靈上的支持。</p>
+            
+            <div class="service-container">
+                <!-- 兒童關懷 -->
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="../images/service-children.jpg" alt="兒童關懷服務">
+                    </div>
+                    <div class="service-content">
+                        <h3>兒童課後照顧</h3>
+                        <p>為需要課後照顧的兒童提供安全、溫馨的環境，包含課業輔導、才藝培養、品格教育等服務，協助兒童全面發展。</p>
+                        <p class="service-details">服務內容：</p>
+                        <ul class="service-list">
+                            <li>課業指導與學習支持</li>
+                            <li>生活技能培養</li>
+                            <li>多元藝術與興趣培養</li>
+                            <li>品格教育活動</li>
+                            <li>特殊兒童的個別化輔導</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="children.html" class="btn primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 長者照顧 -->
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="../images/service-elderly.jpg" alt="長者照顧服務">
+                    </div>
+                    <div class="service-content">
+                        <h3>長者關懷服務</h3>
+                        <p>為獨居或行動不便的長者提供生活協助、健康關懷、心靈陪伴等服務，幫助長者安心且有尊嚴地生活。</p>
+                        <p class="service-details">服務內容：</p>
+                        <ul class="service-list">
+                            <li>居家關懷訪視</li>
+                            <li>日間活動與社交支持</li>
+                            <li>健康促進活動</li>
+                            <li>電話問安服務</li>
+                            <li>節慶與生日關懷</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="elderly.html" class="btn primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 社區服務 -->
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="../images/service-community.jpg" alt="社區服務">
+                    </div>
+                    <div class="service-content">
+                        <h3>特殊兒童照顧</h3>
+                        <p>為特殊需求兒童提供專業的照顧服務，協助他們發展潛能，融入社會，並支持其家庭。</p>
+                        <p class="service-details">服務內容：</p>
+                        <ul class="service-list">
+                            <li>個別化教育計畫</li>
+                            <li>生活自理技能訓練</li>
+                            <li>社交互動能力發展</li>
+                            <li>感覺統合活動</li>
+                            <li>家庭支持與諮詢</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="community.html" class="btn primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="../images/service-community.jpg" alt="社區服務">
+                    </div>
+                    <div class="service-content">
+                        <h3>物資援助</h3>
+                        <p>為經濟困難的家庭提供生活必需品、學習用品等物資援助，減輕其經濟負擔，維持基本生活品質。</p>
+                        <p class="service-details">服務內容：</p>
+                        <ul class="service-list">
+                            <li>食物包與生活用品發放</li>
+                            <li>學用品與制服補助</li>
+                            <li>節慶物資關懷</li>
+                            <li>家庭緊急救助</li>
+                            <li>二手物資媒合</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="community.html" class="btn primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="../images/service-community.jpg" alt="社區服務">
+                    </div>
+                    <div class="service-content">
+                        <h3>社區服務</h3>
+                        <p>推動社區互助與關懷網絡，舉辦各類社區活動，增進居民互動，營造溫馨和諧的社區環境。</p>
+                        <p class="service-details">服務內容：</p>
+                        <ul class="service-list">
+                            <li>社區關懷據點經營</li>
+                            <li>社區節慶與聯誼活動</li>
+                            <li>社區環境改善計畫</li>
+                            <li>社區健康促進活動</li>
+                            <li>社區教育與宣導</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="community.html" class="btn primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-image">
+                        <img src="../images/service-community.jpg" alt="社區服務">
+                    </div>
+                    <div class="service-content">
+                        <h3>志工培訓</h3>
+                        <p>招募、培訓與管理志工，提供專業培訓課程，讓志工能夠有效地參與服務，發揮所長。</p>
+                        <p class="service-details">服務內容：</p>
+                        <ul class="service-list">
+                            <li>志工基礎與特殊訓練</li>
+                            <li>專業服務技能培訓</li>
+                            <li>志工督導與支持</li>
+                            <li>志工聯誼與成長活動</li>
+                            <li>志工服務媒合</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="community.html" class="btn primary">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 參與方式 -->
+    <section class="service-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>如何參與</h2>
+                <div class="divider"></div>
+            </div>
+            <p class="section-intro">我們歡迎各界人士以不同方式參與加倍愛的服務，一同為創造更溫暖的社會盡一份心力。</p>
+            
+            <div class="participate-grid">
+                <div class="participate-card">
+                    <div class="participate-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>成為志工</h3>
+                    <p>加入志工行列，親身參與各項服務活動，直接為需要幫助的人提供協助。</p>
+                    <a href="../contact/volunteer.html" class="btn secondary">立即報名</a>
+                </div>
+                <div class="participate-card">
+                    <div class="participate-icon">
+                        <i class="fas fa-donate"></i>
+                    </div>
+                    <h3>捐款支持</h3>
+                    <p>透過捐款支持加倍愛的服務項目，讓更多資源能夠幫助到需要的人。</p>
+                    <a href="../contact/donate.html" class="btn secondary">立即捐款</a>
+                </div>
+                <div class="participate-card">
+                    <div class="participate-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>資源合作</h3>
+                    <p>提供專業技能、場地或物資等資源，與加倍愛進行多元合作。</p>
+                    <a href="../contact/index.html" class="btn secondary">聯絡我們</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾區域 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="加倍愛Logo">
+                        <h3>加倍愛</h3>
+                    </div>
+                    <p>加倍愛是致力於關懷弱勢、提供社會服務的非營利組織，我們相信透過每個人的一點點付出，能為社會帶來巨大的改變。</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>聯絡資訊</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 臺北市南港區忠孝東路七段625巷16號</li>
+                        <li><i class="fas fa-phone"></i> 02-26538820</li>
+                        <li><i class="fas fa-envelope"></i> doublemile8820@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="../about/index.html">關於我們</a></li>
+                        <li><a href="index.html">服務項目</a></li>
+                        <li><a href="../contact/index.html">聯絡我們</a></li>
+                        <li><a href="../privacy.html">隱私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>社群媒體</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/doublemile8820/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Line"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 加倍愛 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+</body>
+</html> 
